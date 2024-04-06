@@ -34,7 +34,7 @@ import json
 import csv
 import sys
 from optparse import OptionParser
-from csrankings import areadict
+#from csrankings import areadict_a_star, areadict_a, areadict_b
 from collections import defaultdict
 
 csrankings_root = "."

@@ -23,7 +23,7 @@ csrankings.js: csrankings.ts continents.ts
 	tsc --project tsconfig.json
 
 csrankings.min.js: csrankings.js csrankings.ts
-	google-closure-compiler --js csrankings.js > csrankings.min.js
+	closure-compiler --js csrankings.js > csrankings.min.js
 
 update-dblp:
 	$(MAKE) download-dblp

@@ -1,0 +1,47 @@
+Reading makefiles...
+Updating makefiles...
+Updating goal targets...
+ File 'all' does not exist.
+   File 'generated-author-info.csv' does not exist.
+  Must remake target 'generated-author-info.csv'.
+Makefile:90: update target 'generated-author-info.csv' due to: faculty-affiliations.csv dblp.xml.gz util/regenerate_data.py util/csrankings.py dblp-aliases.csv
+##>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo "Rebuilding the publication database (generated-author-info.csv)."
+##<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Rebuilding the publication database (generated-author-info.csv).
+##>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+python3  util/split-csv.py
+##<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+processing a
+processing b
+processing c
+processing d
+processing e
+processing f
+processing g
+processing h
+processing i
+processing j
+processing k
+processing l
+processing m
+processing n
+processing o
+processing p
+processing q
+processing r
+processing s
+processing t
+processing u
+processing v
+processing w
+processing x
+processing y
+processing z
+##>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+python3  util/regenerate_data.py
+##<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+{'International Joint Conference on Autonomous Agents and Multiagent Systems (previously the International Conference on Multiagent Systems, ICMAS, changed in 2000)': ['AAMAS'], 'Association for Computational Linguistics': ['ACL'], 'ACM Multimedia': ['ACMMM'], 'Automated Software Engineering Conference': ['ASE'], 'Architectural Support for Programming Languages and Operating Systems': ['ASPLOS'], 'Computer Aided Verification': ['CAV'], 'ACM Conference on Computer and Communications Security': ['CCS'], 'International Conference on Human Factors in Computing Systems': ['CHI'], 'Conference on Learning Theory': ['COLT'], 'Advances in Cryptology': ['CRYPTO'], 'IEEE Conference on Computer Vision and Pattern Recognition': ['CVPR'], 'ACM Conference on Economics and Computation': ['EC'], 'European Conference on Computer Vision': ['ECCV'], 'Empirical Methods in Natural Language Processing': ['EMNLP'], 'International Conference on the Theory and Application of Cryptographic Techniques': ['EuroCrypt'], 'IEEE Symposium on Foundations of Computer Science': ['FOCS'], 'ACM International Conference on the Foundations of Software Engineering (was ESEC/FSE, changed 2024; duplicate previously listed as ESEC, removed from DB)': ['FSE'], 'International Symposium on High Performance Computer Architecture': ['HPCA'], 'International Conference on Automated Planning and Scheduling': ['ICAPS'], 'IEEE International Conference on Computer Vision': ['ICCV'], 'International Conference on Data Engineering': ['ICDE'], 'IEEE International Conference on Data Mining': ['ICDM'], 'International Conference on Learning Representations': ['ICLR'], 'International Conference on Machine Learning': ['ICML'], 'IEEE International Conference on Robotics and Automation': ['ICRA'], 'International Conference on Software Engineering': ['ICSE'], 'International Joint Conference on Artificial Intelligence': ['IJCAI'], 'IEEE International Conference on Computer Communications': ['INFOCOM'], 'Information Processing in Sensor Networks': ['IPSN'], 'ACM International Symposium on Computer Architecture': ['ISCA'], 'IEEE/ACM International Symposium on Mixed and Augmented Reality': ['ISMAR'], 'ACM International Conference on Knowledge Discovery and Data Mining': ['KDD'], 'International Conference on the Principles of Knowledge Representation and Reasoning': ['KR'], 'IEEE Symposium on Logic in Computer Science': ['LICS'], 'ACM International Conference on Mobile Computing and Networking': ['MOBICOM'], 'Usenix Network and Distributed System Security Symposium': ['NDSS'], 'Advances in Neural Information Processing Systems (was NIPS)': ['NeurIPS'], 'Usenix Symposium on Operating Systems Design and Implementation': ['OSDI'], 'IEEE International Conference on Pervasive Computing and Communications': ['PERCOM'], 'ACM-SIGPLAN Conference on Programming Language Design and Implementation': ['PLDI'], 'ACM Symposium on Principles of Distributed Computing': ['PODC'], 'ACM SIGMOD-SIGACT-SIGART Conference on Principles of Database Systems': ['PODS'], 'ACM-SIGACT Symposium on Principles of Programming Languages': ['POPL'], 'Real Time Systems Symposium': ['RTSS'], 'ACM Conference on Embedded Networked Sensor Systems': ['SENSYS'], 'ACM Conference on Applications, Technologies, Architectures, and Protocols for Computer Communication': ['SIGCOMM'], 'ACM SIG International Conference on Computer Graphics and Interactive Techniques': ['SIGGRAPH'], 'ACM International Conference on Research and Development in Information Retrieval': ['SIGIR'], 'Measurement and Modeling of Computer Systems': ['SIGMETRICS'], 'ACM Special Interest Group on Management of Data Conference': ['SIGMOD'], 'ACM/SIAM Symposium on Discrete Algorithms': ['SODA'], 'ACM SIGOPS Symposium on Operating Systems Principles': ['SOSP'], 'IEEE Symposium on Security and Privacy': ['SP'], 'ACM Symposium on Theory of Computing': ['STOC'], 'ACM Symposium on User Interface Software and Technology': ['UIST'], 'Usenix Security Symposium': ['USENIX-Security'], 'International Conference on Very Large Databases': ['VLDB'], 'IEEE Conference on Virtual Reality and 3D User Interfaces': ['VR'], 'International World Wide Web Conference': ['WWW']}
+
+#0  generated-author-info.csv at /home/himanshu/CS_Rankings/Makefile:89
+#1  all at /home/himanshu/CS_Rankings/Makefile:15

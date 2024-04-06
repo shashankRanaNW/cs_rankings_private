@@ -13,7 +13,11 @@ from csrankings import (
     countPaper,
     pagecount,
     startpage,
-    areadict,
+    areadict_a_star,
+    areadict_b,
+    areadict_a,
+    areadict_c,
+    areadict_d,
     confdict,
     TOG_SIGGRAPH_Volume,
     TOG_SIGGRAPH_Asia_Volume,
@@ -22,6 +26,7 @@ from csrankings import (
     TVCG_VR_Volume,
 )
 from collections import defaultdict, OrderedDict
+from pprint import pprint as pp
 
 parser = argparse.ArgumentParser(
     prog="csrankings",
@@ -97,6 +102,8 @@ counter = 0
 successes = 0
 failures = 0
 
+conf_set = set()
+conf_args_set = set()
 
 def do_it() -> None:
     gz = gzip.GzipFile("dblp.xml.gz")
@@ -111,10 +118,27 @@ def build_dicts() -> None:
     # e.g., confdict['CVPR'] = 'vision'.
     confdict = {}
     venues = []
-    for k, v in areadict.items():
+    for k, v in areadict_a_star.items():
         for item in v:
             confdict[item] = k
             venues.append(item)
+    for k,v in areadict_a.items():
+        for item in v:
+            confdict[item] = k
+            venues.append(item)
+    for k,v in areadict_b.items():
+        for item in v:
+            confdict[item] = k
+            venues.append(item)
+    for k,v in areadict_c.items():
+        for item in v:
+            confdict[item] = k
+            venues.append(item)
+    for k,v in areadict_d.items():
+        for item in v:
+            confdict[item] = k
+            venues.append(item)
+    
 
     facultydict = defaultdict(str)
     aliasdict = {}
@@ -185,8 +209,10 @@ def handle_article(_: Any, article: ArticleType) -> bool:  # type: ignore
             confname = Conference(article["journal"])
         else:
             return True
-
+        
+        conf_set.add( confname )
         if args.conference not in confname:
+            conf_args_set.add(args.conference)
             return True
 
         if confname not in confdict:
@@ -338,6 +364,8 @@ def main() -> None:
     do_it()
     dump_it()
     print(f"Total papers counted = {str(totalPapers)}")
+    pp( conf_set )
+    pp( conf_args_set)
 
 
 if __name__ == "__main__":
