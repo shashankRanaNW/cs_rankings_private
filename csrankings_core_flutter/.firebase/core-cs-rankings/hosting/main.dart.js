@@ -35933,7 +35933,7 @@ R(a){var s,r=this,q=null,p=A.acU(q,A.aiv(B.U,B.Dt),!0),o=A.d3("Conferences",q),n
 m=A.c0(a,q,m).w
 s=t.F
 m=A.mB(q,A.abz(A.a([A.a7w(A.No(A.a([A.d3("CORE Rankings: ",q),new A.c2(B.ad,A.he(A.a([A.d3("CORE A*",q),A.ms(new A.a2s(r),r.y)],s),B.ak,B.af,B.au),q),new A.c2(B.ad,A.he(A.a([A.d3("CORE A",q),A.ms(new A.a2t(r),r.z)],s),B.ak,B.af,B.au),q),new A.c2(B.ad,A.he(A.a([A.d3("CORE B",q),A.ms(new A.a2u(r),r.Q)],s),B.ak,B.af,B.au),q)],s),B.ak,B.af),q),A.aan(2),A.a7w(A.No(A.a([A.d3("Research Areas: ",q),new A.c2(B.ad,A.he(A.a([A.d3("Artificial Intelligence",q),A.ms(new A.a2v(r),r.as)],s),B.ak,B.af,B.au),q),new A.c2(B.ad,A.he(A.a([A.d3("Systems",q),A.ms(new A.a2w(r),r.at)],s),B.ak,B.af,B.au),q),new A.c2(B.ad,A.he(A.a([A.d3("Theory",q),A.ms(new A.a2x(r),r.ax)],s),B.ak,B.af,B.au),q),new A.c2(B.ad,A.he(A.a([A.d3("Interdisciplinary Areas",q),A.ms(new A.a2y(r),r.ay)],s),B.ak,B.af,B.au),q)],s),B.ak,B.af),q),A.aan(2),new A.A3(new A.a2z(r),q,q,q,q,B.P,q,!1,q,A.d3("Apply",q),q)],s)),q,q,l.a.b,q,q,m.a.a)
-return new A.rs(A.a7Y(!0,new A.tL(new A.pp(o,n,new A.Ip(q,q,1/0,56),q),A.abz(r.w),new A.zZ(m,q),q),B.ay,!0),"Flutter Demo",p,!1,q)}}
+return new A.rs(A.a7Y(!0,new A.tL(new A.pp(o,n,new A.Ip(q,q,1/0,56),q),A.abz(r.w),new A.zZ(m,q),q),B.ay,!0),"CORE CSRankings",p,!1,q)}}
 A.a2E.prototype={
 $1(a){var s=A.a([],t.s)
 J.LQ(a,new A.a2D(s))
