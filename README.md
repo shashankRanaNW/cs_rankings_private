@@ -20,7 +20,7 @@ Our _Desi_ CS Rankings website is hosted on https://core-cs-rankings.web.app whi
 
 - Specific domains of CS ( AI, systems ) can be filtered for ranking, selected via a check boxes.
 
-- The tedious process of hard-coding has been avoided , with the data and rating of conferences being scraped from CORE website directly.
+- The process of hard-coding has been avoided , with the data and rating of conferences being scraped from CORE website directly.
 
 - Users have the choice to look at just the SIGs that they find interesting. This way, they can focus on the areas of computer science that they care about most.
 
