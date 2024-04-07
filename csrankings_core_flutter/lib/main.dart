@@ -139,97 +139,183 @@ class _MyAppState extends State<MyApp> {
     if (!isAStar) {
       debugPrint('Not A*');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.rank != 'A*') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+
       });
     }
     if (!isA) {
       debugPrint('Not A');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
-          // debugPrint(el.name);
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.rank != 'A') {
               newConf.add(elt);
-              // debugPrint('${elt.name} - ${elt.rank}');
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
     if (!isB) {
       debugPrint('Not B');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.rank != 'B') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
     if (!isAI) {
+      debugPrint('Not A*');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.area != 'Artificial Intelligence') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
     if (!isSystem) {
+      debugPrint('Not A*');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.area != 'Systems') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
     if (!isTheory) {
+      debugPrint('Not A*');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.area != 'Theory') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
     if (!isInter) {
+      debugPrint('Not A*');
       newUni.forEach((element) {
+        double ad = 0.0;
+        double pu = 0.0;
         element.authors.forEach((el) {
           List<Conf> newConf = [];
+          double adj = 0.0;
+          double pub = 0.0;
           el.conf.forEach((elt) {
             if (elt.area != 'Interdisciplinary Subjects') {
               newConf.add(elt);
+              adj += elt.adj;
+              pub += elt.pub;
             }
           });
+          el.adj = adj;
+          el.pub = pub;
+          ad += adj;
+          pu += pub;
           el.conf = List.from(newConf);
         });
+        element.adj = ad;
+        
       });
     }
 
@@ -248,6 +334,15 @@ class _MyAppState extends State<MyApp> {
       element.authors.sort((a, b) => ((a.adj - b.adj) * 100).round());
     });
     newUni = l;
+    newUni.sort((a, b) => ((b.adj - a.adj) * 100).round());
+
+    var i = 1;
+    newUni.forEach(
+      (element) {
+        element.index = i;
+        i++;
+      },
+    );
     setState(() {});
   }
 
@@ -256,6 +351,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           // This is the theme of your application.
           //

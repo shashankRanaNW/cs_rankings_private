@@ -5,7 +5,7 @@ class Uni extends StatefulWidget {
   final String name;
   List<Author> authors;
   int index;
-  final double adj;
+  double adj;
   Uni(
       {super.key,
       required this.index,
