@@ -6,7 +6,7 @@ import contextlib
 import re
 import csv
 from typing import Dict, List, NewType
-
+from pprint import pprint as pp
 a_star_list = []
 a_list = []
 b_list = []
@@ -14,7 +14,7 @@ c_list=[]
 d_list=[]
 
 # Read the CSV file
-with open('/home/himanshu/CS_Rankings/CORE.csv', 'r') as csv_file:
+with open('./CORE.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
     
     # Skip the header if present
@@ -38,7 +38,9 @@ with open('/home/himanshu/CS_Rankings/CORE.csv', 'r') as csv_file:
         elif row[4] == 'D':
             d_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
 # Print the lists for each type
-# print("List for A*: ", a_star_list)
+pp( a_star_list)
+print('\n')
+print('\n')
 # print("List for A: ", a_list)
 # print("List for B: ", b_list)
 
@@ -60,6 +62,8 @@ for area, conference in c_list:
     areadict_c[area].append(conference)
 for area, conference in d_list:
     areadict_d[area].append(conference)
+print('\n')
+pp(areadict_a_star)
 
 
 Title = NewType("Title", str)

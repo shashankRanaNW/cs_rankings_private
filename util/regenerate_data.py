@@ -365,7 +365,7 @@ def main() -> None:
     dump_it()
     print(f"Total papers counted = {str(totalPapers)}")
     pp( conf_set )
-    pp( conf_args_set)
+    print( len(conf_set) )
 
 
 if __name__ == "__main__":
