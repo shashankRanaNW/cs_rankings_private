@@ -12,7 +12,7 @@ TARGETS = csrankings.js csrankings.min.js generated-author-info.csv
 PYTHON = python3 # 3.7
 PYPY   = python3 # pypy
 
-all: generated-author-info.csv csrankings.js csrankings.min.js csrankings.csv  # fix-affiliations home-pages scholar-links
+all: generated-author-info.csv csrankings.js csrankings.csv  # fix-affiliations home-pages scholar-links
 	$(MAKE) clean-csrankings
 
 clean:
@@ -21,9 +21,6 @@ clean:
 csrankings.js: csrankings.ts continents.ts
 	@echo "Rebuilding JavaScript code."
 	tsc --project tsconfig.json
-
-csrankings.min.js: csrankings.js csrankings.ts
-	closure-compiler --js csrankings.js > csrankings.min.js
 
 update-dblp:
 	$(MAKE) download-dblp

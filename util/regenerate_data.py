@@ -6,6 +6,7 @@ import json
 import csv
 import sys
 from typing import Any, Dict, List, Tuple, TypedDict
+import pandas as pd
 from csrankings import (
     Area,
     Conference,
@@ -18,6 +19,10 @@ from csrankings import (
     areadict_a,
     areadict_c,
     areadict_d,
+    # areadict_a_star_full,
+    # areadict_b_full,
+    # areadict_c_full,
+    # areadict_d_full,
     confdict,
     TOG_SIGGRAPH_Volume,
     TOG_SIGGRAPH_Asia_Volume,
@@ -27,6 +32,9 @@ from csrankings import (
 )
 from collections import defaultdict, OrderedDict
 from pprint import pprint as pp
+
+conf_rev_dict = {}
+
 
 parser = argparse.ArgumentParser(
     prog="csrankings",
@@ -338,13 +346,28 @@ def dump_it() -> None:
     global authlogs
     global interestingauthors
     global facultydict
+
+    for short_hand in confdict.values():
+        for key in confdict.keys():
+            if confdict[key] == short_hand:
+                conf_rev_dict[short_hand] = key
+                break
+
+    df = pd.read_csv("./CORE.csv")
+    conf_rating_map = {}
+    for index, row in df.iterrows():
+        short_hand = row[2]
+        rating = row[4]
+        conf_rating_map[short_hand] = rating
+
     with open("generated-author-info.csv", "w") as f:
-        f.write('"name","dept","area","count","adjustedcount","year"\n')
+        f.write('"name","dept","area","count","adjustedcount","year","short_hand","rating"\n')
         authorscores = OrderedDict(sorted(authorscores.items()))
+        # pp(authorscores)
         for ((authorName, area, year), count) in authorscores.items():
             countAdjusted = authorscoresAdjusted[(authorName, area, year)]
             f.write(
-                f"{authorName},{facultydict[authorName]},{area},{count},{countAdjusted:1.5},{year}\n"
+                f"{authorName},{facultydict[authorName]},{area},{count},{countAdjusted:1.5},{year},{conf_rev_dict[area]},{conf_rating_map[conf_rev_dict[area]]}\n"
             )
 
     with open("articles.json", "w") as f:
@@ -364,8 +387,7 @@ def main() -> None:
     do_it()
     dump_it()
     print(f"Total papers counted = {str(totalPapers)}")
-    pp( conf_set )
-    print( len(conf_set) )
+    print(  "conf found in db:\n")
 
 
 if __name__ == "__main__":
