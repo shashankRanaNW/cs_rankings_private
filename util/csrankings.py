@@ -37,16 +37,7 @@ with open('./CORE.csv', 'r') as csv_file:
             
         elif row[4] == 'D':
             d_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
-# Print the lists for each type
-<<<<<<< HEAD
-pp( a_star_list)
-=======
-# pp( a_star_list)
->>>>>>> 9f11dcc464f1557dc2db89b64777bc6bdbe1e151
-print('\n')
-print('\n')
-# print("List for A: ", a_list)
-# print("List for B: ", b_list)
+
     
 areadict_a_star: Dict[str, List[str]] = {area: [] for area, _ in a_star_list}
 areadict_a: Dict[str, List[str]] = {area: [] for area, _ in a_list}

@@ -5,18 +5,23 @@
 # See COPYING for license information.
 #
 
-TARGETS = csrankings.js csrankings.min.js generated-author-info.csv
+TARGETS = csrankings.js csrankings.min.js generated-author-info.csv generated-author-info-dom-info.csv
 
 .PHONY: home-pages scholar-links fix-affiliations update-dblp clean-dblp download-dblp shrink-dblp clean-csrankings
 
 PYTHON = python3 # 3.7
 PYPY   = python3 # pypy
 
-all: generated-author-info.csv csrankings.js csrankings.csv  # fix-affiliations home-pages scholar-links
+all: generated-author-info-dom-info.csv csrankings.js csrankings.csv  # fix-affiliations home-pages scholar-links
 	$(MAKE) clean-csrankings
 
 clean:
 	rm $(TARGETS)
+
+generated-author-info-dom-info.csv : generated-author-info.csv
+	@echo "Adding DOMAIN info to the publication database."
+	$(PYTHON) util/domain_categorise.py
+	@echo "Done."
 
 csrankings.js: csrankings.ts continents.ts
 	@echo "Rebuilding JavaScript code."
