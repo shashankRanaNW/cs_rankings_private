@@ -1,18 +1,18 @@
 from typing import Dict
-
+    
 """Subroutines used for computing rankings for CSrankings.
 """
 import contextlib
 import re
 import csv
 from typing import Dict, List, NewType
-
+from pprint import pprint as pp
 a_star_list = []
 a_list = []
 b_list = []
 c_list=[]
 d_list=[]
-
+    
 # Read the CSV file
 with open('./CORE.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
@@ -31,24 +31,26 @@ with open('./CORE.csv', 'r') as csv_file:
             a_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
         elif row[4] == 'B':
             # Append 2nd and 3rd columns to the B list
-           b_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
+            b_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
         elif row[4] == 'C':
             c_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
             
         elif row[4] == 'D':
             d_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
 # Print the lists for each type
-# print("List for A*: ", a_star_list)
+# pp( a_star_list)
+print('\n')
+print('\n')
 # print("List for A: ", a_list)
 # print("List for B: ", b_list)
-
+    
 areadict_a_star: Dict[str, List[str]] = {area: [] for area, _ in a_star_list}
 areadict_a: Dict[str, List[str]] = {area: [] for area, _ in a_list}
 areadict_b: Dict[str, List[str]] = {area: [] for area, _ in b_list}
 areadict_c: Dict[str, List[str]] = {area: [] for area, _ in c_list}
 areadict_d: Dict[str, List[str]] = {area: [] for area, _ in d_list}
-
-
+    
+    
 # Populate the dictionary with conferences
 for area, conference in a_star_list:
     areadict_a_star[area].append(conference)
@@ -60,8 +62,10 @@ for area, conference in c_list:
     areadict_c[area].append(conference)
 for area, conference in d_list:
     areadict_d[area].append(conference)
-
-
+print('\n')
+# pp(areadict_a_star)
+    
+    
 Title = NewType("Title", str)
 Author = NewType("Author", str)
 Area = NewType("Area", str)
@@ -83,8 +87,8 @@ with open("sigcse-research-articles.csv", "r") as f:
     reader = csv.DictReader(f)
     for row in reader:
         SIGCSE.add((int(row["year"]), int(row["start"]), int(row["end"])))
-
-
+    
+    
 def startpage(pageStr: str) -> int:
     """Compute the starting page number from a string representing page numbers."""
     if pageStr is None:
@@ -97,14 +101,14 @@ def startpage(pageStr: str) -> int:
     elif pageCounterMatcher2 is not None:
         start = int(pageCounterMatcher2.group(1))
     return start
-
-
+    
+    
 def test_startpage() -> int:
     assert startpage("117-128") == 117
     assert startpage("138:1-138:28") == 1
     assert startpage("138:200-138:208") == 200
-
-
+    
+    
 def pagecount(pageStr: str) -> int:
     """Compute the number of pages in a string representing a range of page numbers."""
     if pageStr is None:
@@ -119,17 +123,17 @@ def pagecount(pageStr: str) -> int:
     elif pageCounterMatcher2 is not None:
         count = _extract_pagecount(pageCounterMatcher2)
     return count
-
-
+    
+    
 def _extract_pagecount(arg0) -> int:
     """Extracts the number of pages from a range string.
-
+    
     Args:
         arg0 (Match): A regex match object containing the start and end page numbers.
-
+    
     Returns:
         The number of pages in the range.
-
+    
     """
     # Extract start and end page numbers from regex match object.
     start = int(arg0.group(1))
@@ -137,14 +141,14 @@ def _extract_pagecount(arg0) -> int:
     # Calculate number of pages in the range and return.
     # inclusive.
     return end - start + 1
-
-
+    
+    
 def test_pagecount() -> int:
     assert pagecount("117-128") == 12
     assert pagecount("138:1-138:28") == 28
     assert pagecount("138:200-138:208") == 9
-
-
+    
+    
 #
 # Max three most selective venues per area for now.
 #
@@ -441,10 +445,10 @@ def test_pagecount() -> int:
 # }
 # EMSOFT is now published as a special issue of TECS *or* IEEE TCAD in a particular page range.
 # 2023 info contributed by Ezio Bartocci
-
+    
 EMSOFT_TECS = {2017: (16, "5s"), 2019: (18, "5s"), 2021: (20, "5s"), 2023: (22, "5s")}
 EMSOFT_TECS_PaperNumbers = {2017: (163, 190), 2019: (84, 110), 2021: (79, 106), 2023: (136, 156)}
-
+    
 EMSOFT_TCAD = {2018: (37, 11), 2020: (39, 11), 2022: (41, 11)}
 # 2018 page numbers contributed by Ezio Bartocci
 # 2022 numbers contributed by Changhee Jang
@@ -847,14 +851,14 @@ for k,v in areadict_c.items():
 for k,v in areadict_d.items():
     for item in v:
         confdict[item] = k
-
+    
 # The list of all areas.
 #arealist = areadict.keys()
 # Consider pubs in this range only.
 startyear = 1970
 endyear = 2269
-
-
+    
+    
 def countPaper(
     confname: Conference,
     year: int,
@@ -998,8 +1002,8 @@ def countPaper(
     if tooFewPages:
         return False
     return True
-
-
+    
+    
 def test_countPaper() -> bool:
     assert not countPaper(
         "anything", startyear - 1, "1", "1", "1-10", 1, 10, "", "nothing"

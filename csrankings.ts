@@ -240,7 +240,7 @@ class CSRankings {
     }
 
     private readonly authorFile = "./csrankings.csv";
-    private readonly authorinfoFile = "./generated-author-info.csv";
+    private readonly authorinfoFile = "./generated-author-info.csv";  // our changes here
     private readonly countryinfoFile = "./country-info.csv";
     // private readonly aliasFile = "./dblp-aliases.csv";
     private readonly turingFile = "./turing.csv";

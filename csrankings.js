@@ -35,7 +35,7 @@ class CSRankings {
     constructor() {
         this.note = {};
         this.authorFile = "./csrankings.csv";
-        this.authorinfoFile = "./generated-author-info.csv";
+        this.authorinfoFile = "./generated-author-info.csv"; // our changes here
         this.countryinfoFile = "./country-info.csv";
         // private readonly aliasFile = "./dblp-aliases.csv";
         this.turingFile = "./turing.csv";
