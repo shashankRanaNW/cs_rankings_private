@@ -341,6 +341,7 @@ def dump_it() -> None:
     with open("generated-author-info.csv", "w") as f:
         f.write('"name","dept","area","count","adjustedcount","year"\n')
         authorscores = OrderedDict(sorted(authorscores.items()))
+        pp(authorscores)
         for ((authorName, area, year), count) in authorscores.items():
             countAdjusted = authorscoresAdjusted[(authorName, area, year)]
             f.write(

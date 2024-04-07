@@ -332,7 +332,7 @@ class CSRankings {
             'rss': 'robotics',
             'vis': 'visualization',
             'vr': 'visualization',
-	    'sigcse': 'csed'
+    	    'sigcse': 'csed'
         };
 
     public static readonly nextTier: { [key: string]: boolean } =

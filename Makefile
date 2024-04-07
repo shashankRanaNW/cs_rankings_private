@@ -22,9 +22,6 @@ csrankings.js: csrankings.ts continents.ts
 	@echo "Rebuilding JavaScript code."
 	tsc --project tsconfig.json
 
-csrankings.min.js: csrankings.js csrankings.ts
-	closure-compiler --js csrankings.js > csrankings.min.js
-
 update-dblp:
 	$(MAKE) download-dblp
 	$(MAKE) shrink-dblp
