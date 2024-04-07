@@ -31,8 +31,6 @@ class _UniState extends State<Uni> {
     // debugPrint('Loaded ${widget.name}');
     widget.authors.sort((a, b) => ((b.adj - a.adj) * 100).round());
     return Card(
-      shape: const RoundedRectangleBorder(
-          side: BorderSide(width: 2.5, color: Colors.black)),
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: Padding(
         padding: EdgeInsets.all(8),
@@ -46,8 +44,14 @@ class _UniState extends State<Uni> {
               //     child: FittedBox(child: Text('Photo')),
               //   ),
               // ),
-              title: Text(
-                '${widget.index}  ${widget.name}',
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${widget.index}  ${widget.name}',
+                  ),
+                  Text(widget.adj.toStringAsFixed(2))
+                ],
               ),
               trailing: IconButton(
                 icon: Icon(
@@ -76,15 +80,15 @@ class _UniState extends State<Uni> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text('Faculty'),
+                                child: Text('Faculty', style: TextStyle(fontWeight: FontWeight.bold),),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text('# Pub'),
+                                child: Text('# Pub', style: TextStyle(fontWeight: FontWeight.bold),),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text('Adj #'),
+                                child: Text('Adj #', style: TextStyle(fontWeight: FontWeight.bold),),
                               )
                             ],
                           ),

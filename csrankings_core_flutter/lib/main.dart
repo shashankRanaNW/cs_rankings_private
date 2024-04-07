@@ -375,6 +375,7 @@ class _MyAppState extends State<MyApp> {
           child: Scaffold(
             appBar: AppBar(
               title: Text('Conferences'),
+              backgroundColor: Colors.deepPurple.withOpacity(0.1),
             ),
             drawer: Drawer(
               child: Container(
