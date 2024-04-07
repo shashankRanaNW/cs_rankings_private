@@ -48,7 +48,7 @@ optgroup:not(:first-child) {
   min-height: 100vh;
 }
 
-.overlaytext {
+.overlaytext 
 {
   font-size: "20vw";
   color: white;
