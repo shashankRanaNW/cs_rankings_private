@@ -37,7 +37,6 @@ with open('./CORE.csv', 'r') as csv_file:
             
         elif row[4] == 'D':
             d_list.append([row[1].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip(),row[2].split(',')[0].split(';')[0].split('.')[0].split('/')[0].rstrip()])
-# Print the lists for each type
 
 print('\n')
 print('\n')
