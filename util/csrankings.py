@@ -14,7 +14,7 @@ c_list=[]
 d_list=[]
 
 # Read the CSV file
-with open('/home/himanshu/CS_Rankings/CORE.csv', 'r') as csv_file:
+with open('./CORE.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
     
     # Skip the header if present
